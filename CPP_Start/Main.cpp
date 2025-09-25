@@ -5,7 +5,8 @@
 int main()
 {
 	setlocale(LC_ALL, "ru");
-	float RUB = 0;
+
+	/*float RUB = 0;
 	float balance = -1;
 	int valut;
 	char contin = 'y';
@@ -63,7 +64,7 @@ int main()
 			std::cout << "Неверный ввод!\n";
 		}
 		std::cout << "Желаете повторить? (y/n)\n"; std::cin >> contin;
-	}
+	}*/
 
 	/*
 		тип_данных имя_массива[размер_массвива];
