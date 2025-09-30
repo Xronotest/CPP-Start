@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Main.h"
 
 
 
@@ -6,6 +7,93 @@ int main()
 {
 	setlocale(LC_ALL, "ru");
 
+	/*srand(time(NULL));
+
+	const int row = 3, col = 4;
+	int arr[row][col];
+	int sumRow = 0, sumCol = 0, sum = 0;
+
+	for (size_t i = 0; i < row; i++)
+	{
+		sumRow = 0;
+		for (size_t j = 0; j < col; j++)
+		{
+			arr[i][j] = rand() % 10;
+			std::cout << arr[i][j] << "\t";
+			sumRow += arr[i][j];
+		}
+
+		sumCol += arr[i][0];
+		std::cout << "| " << sumRow;
+		std::cout << "\n";
+	}
+
+	std::cout << "------------------------------------\n";
+
+	for (size_t i = 0; i < col; i++)
+	{
+		sumCol = 0;
+		for (size_t j = 0; j < row; j++)
+		{
+			sumCol += arr[j][i];
+		}
+		std::cout << sumCol << "\t";
+	}
+	std::cout << "| ";
+
+	for (size_t i = 0; i < row; i++)
+	{
+		for (size_t j = 0; j < col; j++)
+		{
+			sum += arr[i][j];
+		}
+	}
+	std::cout << sum;*/
+	/*
+	srand(time(NULL));
+
+	int a = rand() % 19 - 9;
+	int nine[7];
+	int sum = 0;
+
+	for (size_t i = 0; i < 7; i++)
+	{
+		a = rand() % 19 - 9;
+		nine[i] = a;
+		std::cout << nine[i] << " ";
+	}
+	std::cout << "\n";
+
+	sum = 0;
+	for (size_t i = 0; i < 7; i++)
+	{
+		if (nine[i] >= 0)
+		{
+			std::cout << nine[i] << " ";
+			sum += nine[i];
+		}	
+	}
+	std::cout << "| " << sum;
+	std::cout << "\n";
+	sum = 0;
+	for (size_t i = 0; i < 7; i++)
+	{
+		if (nine[i] < 0)
+		{
+			std::cout << nine[i] << " ";
+			sum += nine[i];
+		}
+	}
+	std::cout << "| " << sum;
+	std::cout << "\n";*/
+	/*srand(time(NULL));
+
+	int a = rand() % 5 + 12;
+	for (size_t i = 0; i < 10; i++)
+	{
+		a = rand() % 19 - 9;
+		std::cout << a << "\n";
+	}*/
 	/*float RUB = 0;
 	float balance = -1;
 	int valut;
@@ -65,7 +153,6 @@ int main()
 		}
 		std::cout << "Желаете повторить? (y/n)\n"; std::cin >> contin;
 	}*/
-
 	/*
 		тип_данных имя_массива[размер_массвива];
 	
