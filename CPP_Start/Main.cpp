@@ -1,12 +1,120 @@
 #include <iostream>
-#include "Main.h"
 
+//void PrintHelloWorld()
+//{
+//	std::cout << "Hello world!\n";
+//}
+//void PrintNumber(int number)
+//{
+//	std::cout << number << "\n";
+//}
+//int ReturnNumber(int a) 
+//{
+//	a++;
+//	return a;
+//}
+//double Plus(double one, double two)
+//{
+//	std::cout << "Результат: " << one + two << "\n";
+//	one = one + two;
+//	return one;
+//}
+//double Minus(double one, double two)
+//{
+//	std::cout << "Результат: " << one - two << "\n";
+//	one = one - two;
+//	return one;
+//}
+//double Umnozh(double one, double two)
+//{
+//	std::cout << "Результат: " << one * two << "\n";
+//	one = one * two;
+//	return one;
+//}
+//double Delen(double one, double two)
+//{
+//	std::cout << "Результат: " << one / two << "\n";
+//	one = one / two;
+//	return one;
+//}
 
+void SetArray(int array[], int size);
+void PrintArray(int array[], int size);
+void SwitchArray(int arrayOne[], int arrayTwo[], const int size);
 
 int main()
 {
 	setlocale(LC_ALL, "ru");
 
+	const int size = 6;
+	int arrOne[size];
+	int arrTwo[size];
+
+	SetArray(arrOne, size);
+	SetArray(arrTwo, size);
+	PrintArray(arrOne, size);
+	PrintArray(arrTwo, size);
+	SwitchArray(arrOne, arrTwo, size);
+	std::cout << "\n";
+	PrintArray(arrOne, size);
+	PrintArray(arrTwo, size);
+
+
+	/*double one, two;
+	char act;
+	 
+	std::cout << "Калькулятор V2\n";
+	std::cout << "Введите действие(+,-,*,/, =(закончить ввод)): "; std::cin >> act;
+	std::cout << "Введите первое число: "; std::cin >> one;
+
+
+	while (act != '=')
+	{
+		std::cout << "Введите второе число: "; std::cin >> two;
+		if (act == '+')
+		{
+			one = Plus(one, two);
+		}
+		else if (act == '-')
+		{
+			one = Minus(one, two);
+		}
+		else if (act == '*')
+		{
+			one = Umnozh(one, two);
+		}
+		else if (act == '/')
+		{
+			if (two == 0)
+			{
+				std::cout << "Это так не работает\n";
+			}
+			else
+			{
+				one = Delen(one, two);
+			}
+		}
+		else
+		{
+			std::cout << one;
+		}
+		std::cout << "Введите действие(+,-,*,/, =(закончить ввод)): "; std::cin >> act;
+	}
+	std::cout << "Результат: " << one;*/
+	/*PrintHelloWorld();
+
+	int number = 100;
+	number = ReturnNumber(number);
+	std::cout << number;*/
+	/*
+	
+	тип_возврата Имя_функции(аргументы){
+	
+		тело_функции
+
+	}
+
+	*/
 	/*srand(time(NULL));
 
 	const int row = 3, col = 4;
@@ -309,4 +417,30 @@ int main()
 		cout << "Результат: " << one;
 	*/
 return 0;
+}
+
+void SetArray(int array[], int size)
+{
+	for (size_t i = 0; i < size; i++)
+	{
+		array[i] = rand() % 9 + 1;
+	}
+}
+void PrintArray(int array[], int size)
+{
+	for (size_t i = 0; i < size; i++)
+	{
+		std::cout << array[i] << " ";
+	}
+	std::cout << "\n";
+}
+void SwitchArray(int arrayOne[], int arrayTwo[], const int size)
+{
+	int memory;
+	for (size_t i = 0; i < size; i++)
+	{
+		memory = arrayOne[i];
+		arrayOne[i] = arrayTwo[i];
+		arrayTwo[i] = memory;
+	}
 }
