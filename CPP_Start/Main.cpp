@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 
 //void PrintHelloWorld()
 //{
@@ -37,16 +38,72 @@
 //	one = one / two;
 //	return one;
 //}
+//void SetArray(int array[], int size);
+//void SetArray(char array[], int size);
+//void SetArray(bool array[], int size);
+//void PrintArray(int array[], int size);
+//void PrintArray(char array[], int size);
+//void PrintArray(bool array[], int size);
+//void SwitchArray(int arrayOne[], int arrayTwo[], const int size);
+//template<typename Type>
+//Type Sum(Type a, Type b)
+//{
+//	return a + b;
+//}
+//int Fak(int N)
+//{
+//	if (N < 0)
+//	{
+//		return 0;
+//	}
+//	else if (N == 0)
+//	{
+//		return 1;
+//	}
+//	else
+//	{
+//		return N * Fak(N - 1);
+//	}
+//}
 
-void SetArray(int array[], int size);
-void PrintArray(int array[], int size);
-void SwitchArray(int arrayOne[], int arrayTwo[], const int size);
+
+int RecursiveUmnozh(int mnozh1, int mnozh2) 
+{
+	return (mnozh2 == 0) ? 0 : (mnozh1 + RecursiveUmnozh(mnozh1, mnozh2-1));
+}
+
 
 int main()
 {
 	setlocale(LC_ALL, "ru");
 
-	const int size = 6;
+	std::cout << RecursiveUmnozh(10, 4);
+
+
+	/*srand(time(NULL));
+
+	const int size = 50;
+	int arrI[size];
+	char arrC[size];
+	bool arrB[size];
+
+	SetArray(arrI, size);
+	SetArray(arrC, size);
+	SetArray(arrB, size);
+	PrintArray(arrI, size);
+	PrintArray(arrC, size);
+	PrintArray(arrB, size);*/
+	/*const int size = 10;
+	int array[size];
+	bool sort;
+	std::cin >> sort;
+	std::sort(std::begin(array), std::end(array));
+
+	SetArray(array, size);
+	PrintArray(array, size);
+	SortArray(array, size, sort);
+	PrintArray(array, size);*/
+	/*const int size = 6;
 	int arrOne[size];
 	int arrTwo[size];
 
@@ -57,9 +114,7 @@ int main()
 	SwitchArray(arrOne, arrTwo, size);
 	std::cout << "\n";
 	PrintArray(arrOne, size);
-	PrintArray(arrTwo, size);
-
-
+	PrintArray(arrTwo, size);*/
 	/*double one, two;
 	char act;
 	 
@@ -419,28 +474,66 @@ int main()
 return 0;
 }
 
-void SetArray(int array[], int size)
-{
-	for (size_t i = 0; i < size; i++)
-	{
-		array[i] = rand() % 9 + 1;
-	}
-}
-void PrintArray(int array[], int size)
-{
-	for (size_t i = 0; i < size; i++)
-	{
-		std::cout << array[i] << " ";
-	}
-	std::cout << "\n";
-}
-void SwitchArray(int arrayOne[], int arrayTwo[], const int size)
-{
-	int memory;
-	for (size_t i = 0; i < size; i++)
-	{
-		memory = arrayOne[i];
-		arrayOne[i] = arrayTwo[i];
-		arrayTwo[i] = memory;
-	}
-}
+//void SetArray(int array[], int size)
+//{
+//	for (size_t i = 0; i < size; i++)
+//	{
+//		array[i] = rand() % 9 + 1;
+//	}
+//}
+//void SetArray(char array[], int size)
+//{
+//	for (size_t i = 0; i < size; i++)
+//	{
+//		int r = rand() % 2;
+//		if (r == 0)
+//		{
+//			array[i] = rand() % 26 + 65;
+//		}
+//		else 
+//		{
+//			array[i] = rand() % 26 + 97;
+//		}
+//	}
+//}
+//void SetArray(bool array[], int size)
+//{
+//	for (size_t i = 0; i < size; i++)
+//	{
+//		array[i] = rand() % 2;
+//	}
+//}
+//void PrintArray(int array[], int size)
+//{
+//	for (size_t i = 0; i < size; i++)
+//	{
+//		std::cout << array[i] << " ";
+//	}
+//	std::cout << "\n";
+//}
+//void PrintArray(char array[], int size)
+//{
+//	for (size_t i = 0; i < size; i++)
+//	{
+//		std::cout << array[i] << " ";
+//	}
+//	std::cout << "\n";
+//}
+//void PrintArray(bool array[], int size)
+//{
+//	for (size_t i = 0; i < size; i++)
+//	{
+//		std::cout << array[i] << " ";
+//	}
+//	std::cout << "\n";
+//}
+//void SwitchArray(int arrayOne[], int arrayTwo[], const int size)
+//{
+//	int memory;
+//	for (size_t i = 0; i < size; i++)
+//	{
+//		memory = arrayOne[i];
+//		arrayOne[i] = arrayTwo[i];
+//		arrayTwo[i] = memory;
+//	}
+//}
