@@ -65,11 +65,24 @@
 //		return N * Fak(N - 1);
 //	}
 //}
+//int RecursiveUmnozh(int mnozh1, int mnozh2) 
+//{
+//	return (mnozh2 == 0) ? 0 : (mnozh1 + RecursiveUmnozh(mnozh1, mnozh2-1));
+//}
 
-
-int RecursiveUmnozh(int mnozh1, int mnozh2) 
+int DelCheck(int arr[], int num)
 {
-	return (mnozh2 == 0) ? 0 : (mnozh1 + RecursiveUmnozh(mnozh1, mnozh2-1));
+	for (size_t i = 0; i < 3; i++)
+	{
+		if (arr[i] == num) 
+		{
+			return num;
+		}
+		else
+		{
+			return 0;
+		}
+	}
 }
 
 
@@ -77,8 +90,183 @@ int main()
 {
 	setlocale(LC_ALL, "ru");
 
-	std::cout << RecursiveUmnozh(10, 4);
+	double fruit[]{ 90, 95, 110, 85 }; //Яблоко, Апельсин, Абрикос, Груша
+	double veget[]{ 110, 130, 100 }; //Томат, Лук, Огурец
+	double tea[]{ 70, 80 }; //Чеснок, Петрушка
 
+	char again = 'y';
+
+	while (again == 'y')
+	{
+		int againС = 1;
+		
+		std::cout << "Соки Тимофея" << "\n"
+			<< "Assортимент:" << "\n"
+			<< "Фруктовые соки: Яблоко, Апельсин, Абрикос, Груша" << "\n"
+			<< "Овощные соки: Томат, Лук, Огурец" << "\n"
+			<< "ЧААААЙ: Чеснок, Петрушка" << "\n" << "\n";
+
+		while (againС == 1)
+		{ 
+			int del = 0;
+					int choise = 0;
+					int delet[]{ 0, 0 ,0 };
+					char againD = 'n';
+					int buyCat;
+					int buyTowar;
+					int actionTea = 0;
+					int actionLuk = 0;
+					double actionCostTea = 0;
+					double actionCostLuk = 0;
+					double cost = 0;
+					int quantity;
+					char ceep = 'y';
+
+			std::cout << "Выберете действие:" << "\n"
+				<< "Начать покупки (1)" << "\n"
+				<< "Отказаться от категории (2)" << "\n";
+			std::cin >> choise;
+		
+			if (choise == 2)
+			{
+				std::cout << "От какой котегории отказаться?" << "\n"
+					<< "Фрукты(1), Овощи(2), Чай(3)" << "\n";
+				std::cin >> del;
+
+				for (size_t i = 0; i < 3; i++)
+				{
+					if (del == 1)
+					{
+						delet[i] = 1;
+					}
+					else if (del == 2)
+					{
+						delet[i] = 2;
+					}
+					else if (del == 3)
+					{
+						delet[i] = 3;
+					}
+					std::cout << "Желаете отказаться ещё от категории? (y/n)" << "\n";
+					std::cin >> againD;
+					if (againD == 'y')
+					{
+						break;
+					}
+				}
+			}
+			else if (choise == 1)
+			{
+				while (ceep == 'y')
+				{
+					std::cout << "Выбирайте категорию:" << "\n";
+
+					if (DelCheck(delet, 1) != 1)
+					{
+						std::cout << "Фрукты(1)" << "\n";
+					}
+					if (DelCheck(delet, 2) != 2)
+					{
+						std::cout << "Овощи(2)" << "\n";
+					}
+					if (DelCheck(delet, 3) != 3)
+					{
+						std::cout << "Чай(3)" << "\n";
+					}
+
+					std::cin >> buyCat;
+
+					if (buyCat == 1 && DelCheck(delet, 1) != 1)
+					{
+						std::cout << "Выбирайте товар:" << "\n"
+							<< "Яблоко(1), Апельсин(2), Абрикос(3), Груша(4)" << "\n";
+						std::cin >> buyTowar;
+						std::cout << "Выбирайте количество:";
+						std::cin >> quantity;
+						cost += fruit[buyTowar - 1] * quantity;
+					}
+					else if (buyCat == 2 && DelCheck(delet, 2) != 2)
+					{
+						std::cout << "Выбирайте товар:" << "\n"
+							<< "Томат(1), Лук(2), Огурец(3)" << "\n";
+						std::cin >> buyTowar;
+						std::cout << "Выбирайте количество:";
+						std::cin >> quantity;
+						
+						if (buyTowar == 2)
+						{
+							actionLuk += quantity;
+							actionCostLuk += veget[buyTowar - 1] * quantity;
+						}
+						else
+						{
+							cost += veget[buyTowar - 1] * quantity;
+						}
+					}
+					else if (buyCat == 3 && DelCheck(delet, 3) != 3)
+					{
+						std::cout << "Выбирайте товар:" << "\n"
+							<< "Чеснок(1), Петрушка(2)" << "\n";
+						std::cin >> buyTowar;
+						std::cout << "Выбирайте количество:";
+						std::cin >> quantity;
+
+						if (buyTowar == 2)
+						{
+							actionTea += quantity;
+								
+							if (actionTea >= 3)
+							{
+								actionCostTea += tea[buyTowar - 1] * quantity;
+							}
+							
+						}
+						else
+						{
+							cost += tea[buyTowar - 1] * quantity;
+						}	
+					}
+					else
+					{
+						std::cout << "Вы отказались от этой категории или её нет." << "\n";
+					}
+					std::cout << "Повторить? (y/n)";
+					std::cin >> ceep;
+					std::cout << "\n";
+				}
+			}
+		
+			if (actionLuk >= 4)
+			{
+				actionLuk -= (actionLuk / 4); 
+				cost += veget[1] * actionLuk;
+				std::cout << "Скидка на луковый сок." << "\n" << "\n";
+			}
+			else
+			{
+				cost += actionCostLuk;
+			}
+			if (actionTea >= 3)
+			{
+				cost += actionCostTea * 0.95;
+				std::cout << "Скидка на чесночный чай." << "\n" << "\n";
+			}
+			if (cost >= 700)
+			{
+				cost *= 0.87;
+				std::cout << "Скидка на весь чек от 700." << "\n" << "\n";
+			}
+			std::cout << "Итоговая цена: " << cost << "\n" << "\n";
+			std::cout << "Повторить? (y/n)";
+			std::cin >> again;
+			std::cout << "\n";
+		}
+	}
+
+
+
+	
+	
 
 	/*srand(time(NULL));
 
