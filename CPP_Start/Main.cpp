@@ -122,15 +122,17 @@ int main()
 					int quantity;
 					char ceep = 'y';
 
-			std::cout << "Выберете действие:" << "\n"
+			std::cout << "Действия:" << "\n"
 				<< "Начать покупки (1)" << "\n"
-				<< "Отказаться от категории (2)" << "\n";
+				<< "Отказаться от категории (2)" << "\n"
+				<< "Выбор: ";
 			std::cin >> choise;
 		
 			if (choise == 2)
 			{
 				std::cout << "От какой котегории отказаться?" << "\n"
-					<< "Фрукты(1), Овощи(2), Чай(3)" << "\n";
+					<< "Фрукты (1), Овощи (2), Чай (3)" << "\n"
+					<< "Выбор: ";
 				std::cin >> del;
 
 				for (size_t i = 0; i < 3; i++)
@@ -147,15 +149,16 @@ int main()
 					{
 						delet[i] = 3;
 					}
-					std::cout << "Желаете отказаться ещё от категории? (y/n)" << "\n";
+					std::cout << "Желаете отказаться ещё от категории? (y/n): ";
 					std::cin >> againD;
-					if (againD == 'y')
+					if (againD == 'n')
 					{
+						choise = 1;
 						break;
 					}
 				}
 			}
-			else if (choise == 1)
+			if (choise == 1)
 			{
 				while (ceep == 'y')
 				{
@@ -163,34 +166,37 @@ int main()
 
 					if (DelCheck(delet, 1) != 1)
 					{
-						std::cout << "Фрукты(1)" << "\n";
+						std::cout << "Фрукты (1)" << "\n";
 					}
 					if (DelCheck(delet, 2) != 2)
 					{
-						std::cout << "Овощи(2)" << "\n";
+						std::cout << "Овощи (2)" << "\n";
 					}
 					if (DelCheck(delet, 3) != 3)
 					{
-						std::cout << "Чай(3)" << "\n";
+						std::cout << "Чай (3)" << "\n";
 					}
+					std::cout << "Выбор: ";
 
 					std::cin >> buyCat;
 
 					if (buyCat == 1 && DelCheck(delet, 1) != 1)
 					{
-						std::cout << "Выбирайте товар:" << "\n"
-							<< "Яблоко(1), Апельсин(2), Абрикос(3), Груша(4)" << "\n";
+						std::cout << "Выбирайте товар" << "\n"
+							<< "Яблоко (1), Апельсин (2), Абрикос (3), Груша (4)" << "\n"
+							<< "Выбор: ";
 						std::cin >> buyTowar;
-						std::cout << "Выбирайте количество:";
+						std::cout << "Выбирайте количество: ";
 						std::cin >> quantity;
 						cost += fruit[buyTowar - 1] * quantity;
 					}
 					else if (buyCat == 2 && DelCheck(delet, 2) != 2)
 					{
 						std::cout << "Выбирайте товар:" << "\n"
-							<< "Томат(1), Лук(2), Огурец(3)" << "\n";
+							<< "Томат (1), Лук (2), Огурец (3)" << "\n"
+							<< "Выбор: ";
 						std::cin >> buyTowar;
-						std::cout << "Выбирайте количество:";
+						std::cout << "Количество: ";
 						std::cin >> quantity;
 						
 						if (buyTowar == 2)
@@ -206,9 +212,10 @@ int main()
 					else if (buyCat == 3 && DelCheck(delet, 3) != 3)
 					{
 						std::cout << "Выбирайте товар:" << "\n"
-							<< "Чеснок(1), Петрушка(2)" << "\n";
+							<< "Чеснок (1), Петрушка (2)" << "\n"
+							<< "Выбор: ";
 						std::cin >> buyTowar;
-						std::cout << "Выбирайте количество:";
+						std::cout << "Выбирайте количество: ";
 						std::cin >> quantity;
 
 						if (buyTowar == 2)
@@ -230,7 +237,7 @@ int main()
 					{
 						std::cout << "Вы отказались от этой категории или её нет." << "\n";
 					}
-					std::cout << "Повторить? (y/n)";
+					std::cout << "Продолить закуп? (y/n): ";
 					std::cin >> ceep;
 					std::cout << "\n";
 				}
@@ -249,7 +256,7 @@ int main()
 			if (actionTea >= 3)
 			{
 				cost += actionCostTea * 0.95;
-				std::cout << "Скидка на чесночный чай." << "\n" << "\n";
+				std::cout << "Скидка на петрушевый чай." << "\n" << "\n";
 			}
 			if (cost >= 700)
 			{
@@ -257,7 +264,7 @@ int main()
 				std::cout << "Скидка на весь чек от 700." << "\n" << "\n";
 			}
 			std::cout << "Итоговая цена: " << cost << "\n" << "\n";
-			std::cout << "Повторить? (y/n)";
+			std::cout << "Повторить? (y/n): ";
 			std::cin >> again;
 			std::cout << "\n";
 		}
