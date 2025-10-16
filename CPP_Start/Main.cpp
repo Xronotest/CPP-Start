@@ -69,27 +69,39 @@
 //{
 //	return (mnozh2 == 0) ? 0 : (mnozh1 + RecursiveUmnozh(mnozh1, mnozh2-1));
 //}
+//int DelCheck(int arr[], int num)
+//{
+//	for (size_t i = 0; i < 3; i++)
+//	{
+//		if (arr[i] == num) 
+//		{
+//			return num;
+//		}
+//		else
+//		{
+//			return 0;
+//		}
+//	}
+//}
 
-int DelCheck(int arr[], int num)
-{
-	for (size_t i = 0; i < 3; i++)
-	{
-		if (arr[i] == num) 
-		{
-			return num;
-		}
-		else
-		{
-			return 0;
-		}
-	}
+void MySwap(int &a, int &b) {
+	int c = a;
+	a = b;
+	b = c;
 }
-
 
 int main()
 {
 	setlocale(LC_ALL, "ru");
+	
+	int a = 10, b = 20;
 
+	std::cout << a << " " << b << "\n";
+	MySwap(a, b);
+	std::cout << b << " " << a << "\n";
+
+
+	/*
 	double fruit[]{ 90, 95, 110, 85 }; //Яблоко, Апельсин, Абрикос, Груша
 	double veget[]{ 110, 130, 100 }; //Томат, Лук, Огурец
 	double tea[]{ 70, 80 }; //Чеснок, Петрушка
@@ -268,13 +280,7 @@ int main()
 			std::cin >> again;
 			std::cout << "\n";
 		}
-	}
-
-
-
-	
-	
-
+	}*/
 	/*srand(time(NULL));
 
 	const int size = 50;
