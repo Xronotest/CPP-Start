@@ -41,7 +41,7 @@
 //void SetArray(int array[], int size);
 //void SetArray(char array[], int size);
 //void SetArray(bool array[], int size);
-//void PrintArray(int array[], int size);
+void PrintArray(int array[], int size);
 //void PrintArray(char array[], int size);
 //void PrintArray(bool array[], int size);
 //void SwitchArray(int arrayOne[], int arrayTwo[], const int size);
@@ -83,24 +83,67 @@
 //		}
 //	}
 //}
+//void MySwap(int &a, int &b) {
+//	int c = a;
+//	a = b;
+//	b = c;
+//}
 
-void MySwap(int &a, int &b) {
-	int c = a;
-	a = b;
-	b = c;
+void DynamicArr(int arr[], int size, int number) {
+
+	int* ptr = new int[size];
+
+	for (size_t i = 0; i < size; i++)
+	{
+	}
+
+	arr = new int[size + 1];
+
+	arr = ptr;
+
+	delete[]ptr;
+
+	arr[size] = number;
 }
 
 int main()
 {
 	setlocale(LC_ALL, "ru");
 	
-	int a = 10, b = 20;
+	int size = 5;
+	int* ptr = new int[size];
+	int number;
+
+	std::cout << "Введите число: ";
+	std::cin >> number;
+
+	DynamicArr(ptr, size, number);
+
+	PrintArray(ptr, size + 1);
+	
+	delete[]ptr;
+
+	/*
+	int a = 10;
+
+	int* ptr = new int;
+
+	*ptr = 1000;
+	std::cout << *ptr << "\n\n";
+
+	delete ptr;
+
+	int size = 0;
+	std::cin >> size;
+	ptr = new int[size];
+	
+	delete[]ptr;
+	*/
+	/*int a = 10, b = 20;
 
 	std::cout << a << " " << b << "\n";
 	MySwap(a, b);
-	std::cout << b << " " << a << "\n";
-
-
+	std::cout << b << " " << a << "\n";*/
 	/*
 	double fruit[]{ 90, 95, 110, 85 }; //Яблоко, Апельсин, Абрикос, Груша
 	double veget[]{ 110, 130, 100 }; //Томат, Лук, Огурец
@@ -672,6 +715,7 @@ int main()
 		}
 		cout << "Результат: " << one;
 	*/
+
 return 0;
 }
 
@@ -704,14 +748,14 @@ return 0;
 //		array[i] = rand() % 2;
 //	}
 //}
-//void PrintArray(int array[], int size)
-//{
-//	for (size_t i = 0; i < size; i++)
-//	{
-//		std::cout << array[i] << " ";
-//	}
-//	std::cout << "\n";
-//}
+void PrintArray(int array[], int size)
+{
+	for (size_t i = 0; i < size; i++)
+	{
+		std::cout << array[i] << " ";
+	}
+	std::cout << "\n";
+}
 //void PrintArray(char array[], int size)
 //{
 //	for (size_t i = 0; i < size; i++)
