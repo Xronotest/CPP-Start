@@ -38,7 +38,7 @@
 //	one = one / two;
 //	return one;
 //}
-//void SetArray(int array[], int size);
+void SetArray(int array[], int size);
 //void SetArray(char array[], int size);
 //void SetArray(bool array[], int size);
 void PrintArray(int array[], int size);
@@ -89,37 +89,54 @@ void PrintArray(int array[], int size);
 //	b = c;
 //}
 
-void DynamicArr(int arr[], int size, int number) {
+void DynamicArr(int* &ptr, int size, int number) {
 
-	int* ptr = new int[size];
+	int* ptrC = new int[size];
 
 	for (size_t i = 0; i < size; i++)
 	{
+		ptrC[i] = ptr[i];
 	}
 
-	arr = new int[size + 1];
-
-	arr = ptr;
+	PrintArray(ptrC, size);				//2
 
 	delete[]ptr;
 
-	arr[size] = number;
+	ptr = new int[size + 1];
+
+	PrintArray(ptr, size + 1);			//3
+
+	for (size_t i = 0; i < size; i++)
+	{
+		ptr[i] = ptrC[i];
+	}
+	PrintArray(ptr, size + 1);			//4
+
+	ptr[size] = number;
+
+	PrintArray(ptr, size + 1);			//5
+
+	delete[]ptrC;
 }
 
 int main()
 {
+	srand(time(NULL));
 	setlocale(LC_ALL, "ru");
 	
 	int size = 5;
 	int* ptr = new int[size];
 	int number;
 
+	SetArray(ptr, size);
+	PrintArray(ptr, size);				//1
+
 	std::cout << "¬ведите число: ";
 	std::cin >> number;
 
 	DynamicArr(ptr, size, number);
 
-	PrintArray(ptr, size + 1);
+	PrintArray(ptr, size + 1);			//6
 	
 	delete[]ptr;
 
@@ -719,13 +736,13 @@ int main()
 return 0;
 }
 
-//void SetArray(int array[], int size)
-//{
-//	for (size_t i = 0; i < size; i++)
-//	{
-//		array[i] = rand() % 9 + 1;
-//	}
-//}
+void SetArray(int array[], int size)
+{
+	for (size_t i = 0; i < size; i++)
+	{
+		array[i] = rand() % 9 + 1;
+	}
+}
 //void SetArray(char array[], int size)
 //{
 //	for (size_t i = 0; i < size; i++)
